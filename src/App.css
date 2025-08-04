@@ -1,0 +1,383 @@
+
+
+.App {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  transition: background-color var(--transition-normal);
+}
+
+/* Custom gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--primary-reddish-pink) 0%, var(--primary-teal) 100%);
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, var(--primary-blush) 0%, var(--primary-sage-green) 100%);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(135deg, var(--primary-navy-blue) 0%, var(--primary-teal) 100%);
+}
+
+/* Enhanced Card Styles */
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  overflow: hidden;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-teal);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-reddish-pink), var(--primary-teal));
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-header {
+  background: linear-gradient(135deg, var(--primary-navy-blue) 0%, var(--primary-teal) 100%);
+  color: white;
+  border-bottom: none;
+  padding: 1.25rem 1.5rem;
+  font-weight: 600;
+}
+
+/* Enhanced Progress Bar */
+.progress {
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--bg-secondary);
+  height: 12px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  transition: width var(--transition-slow);
+  background: linear-gradient(90deg, var(--primary-sage-green), var(--primary-teal));
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+/* Enhanced Table Styling */
+.table {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.table th {
+  background: linear-gradient(135deg, var(--primary-navy-blue) 0%, var(--primary-teal) 100%);
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 1rem;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+.table td {
+  padding: 1rem;
+  border-color: var(--border-color);
+  vertical-align: middle;
+  transition: background-color var(--transition-fast);
+}
+
+.table tbody tr:hover {
+  background-color: var(--bg-secondary);
+  transform: scale(1.01);
+  transition: all var(--transition-fast);
+}
+
+/* Enhanced Badge Styling */
+.badge {
+  font-size: 0.75rem;
+  padding: 0.5em 0.75em;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-primary {
+  background: linear-gradient(135deg, var(--primary-teal), var(--primary-navy-blue));
+  color: white;
+}
+
+.badge-success {
+  background: linear-gradient(135deg, var(--primary-sage-green), var(--primary-teal));
+  color: var(--primary-navy-blue);
+}
+
+.badge-warning {
+  background: linear-gradient(135deg, var(--primary-blush), var(--primary-reddish-pink));
+  color: white;
+}
+
+/* Enhanced Button Styling */
+.btn {
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all var(--transition-normal);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left var(--transition-normal);
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-teal), var(--primary-navy-blue));
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--primary-navy-blue), var(--primary-teal));
+  color: white;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--primary-sage-green), var(--primary-teal));
+  color: var(--primary-navy-blue);
+}
+
+.btn-outline-light {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  background: transparent;
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  color: white;
+}
+
+/* Enhanced Form Styling */
+.form-control {
+  border-radius: 12px;
+  border: 2px solid var(--border-color);
+  padding: 0.875rem 1rem;
+  transition: all var(--transition-normal);
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.form-control:focus {
+  border-color: var(--primary-teal);
+  box-shadow: 0 0 0 0.2rem rgba(70, 150, 166, 0.25);
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+/* Enhanced Navbar Styling */
+.navbar {
+  background: linear-gradient(135deg, var(--primary-navy-blue) 0%, var(--primary-teal) 100%);
+  box-shadow: var(--shadow-md);
+  padding: 1rem 0;
+  transition: all var(--transition-normal);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all var(--transition-normal);
+  margin: 0 0.25rem;
+}
+
+.navbar-nav .nav-link:hover {
+  color: white !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.navbar-nav .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white !important;
+}
+
+/* Dark Mode Toggle */
+.theme-toggle {
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  transform: scale(1.1);
+}
+
+/* Alert Styling */
+.alert {
+  border-radius: 12px;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+}
+
+.alert-info {
+  background: linear-gradient(135deg, var(--primary-teal), var(--primary-sage-green));
+  color: var(--primary-navy-blue);
+}
+
+/* Loading States */
+.loading-spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid var(--border-color);
+  border-top: 3px solid var(--primary-teal);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-body {
+    padding: 1rem;
+  }
+  
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.25rem;
+  }
+  
+  .table-responsive {
+    font-size: 0.875rem;
+  }
+  
+  .progress {
+    height: 8px;
+  }
+}
+
+/* Animation for reward cards */
+@keyframes unlock {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.card.border-success {
+  animation: unlock 0.6s ease-in-out;
+  border-color: var(--primary-sage-green) !important;
+}
+
+/* Custom focus styles for accessibility */
+.btn:focus,
+.form-control:focus,
+.nav-link:focus {
+  outline: 2px solid var(--primary-teal);
+  outline-offset: 2px;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .glass {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
